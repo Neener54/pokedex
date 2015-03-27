@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Pokedex</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+          <nav class="tab-bar">
+              <section class="left-small">
+                  <a class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
+              </section>
+
+              <section class="middle tab-bar-section">
+                  <h1 class="title">Pokedex</h1>
+              </section>
+          </nav>
+          <a class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
+          <!-- Off Canvas Menu -->
+          <aside class="left-off-canvas-menu">
+              <!-- whatever you want goes here -->
+              <ul>
+                  <li><%= link_to "Pokedex Home", root_url %></li>
+              </ul>
+          </aside>
+
+          <!-- main content goes here -->
+
+          <!-- close the off-canvas menu -->
+          <a class="exit-off-canvas"></a>
+          <div class="row">
+              <div class="large-12 columns">
+                  <%= yield %>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  </body>
 </html>

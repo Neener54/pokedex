@@ -1,0 +1,112 @@
+<h1><%= @pokemon["name"] %></h1>
+<% @pokemon["images"].each do |image| %>
+    <img src="http://pokeapi.co<%= image.fetch("image", "/media/img.png") %>" title="<%= @pokemon["name"] %> icon"/>
+<% end %>
+
+<dl class="vcard large-12 columns">
+    <dt>Abilities</dt>
+    <dd>
+        <dl class="vcard large-12 columns">
+            <% @pokemon["abilities"].each do |ability| %>
+                <dt><%= ability["name"] %></dt>
+                <dd><%= link_to "view", ability_path(poke_path(ability["resource_uri"])) %></dd>
+            <% end %>
+        </dl>
+    </dd>
+    <dt>Attack</dt>
+    <dd><%= @pokemon["attack"] %></dd>
+
+    <dt>Catch Rate</dt>
+    <dd><%= @pokemon["catch_rate"] %></dd>
+
+    <dt>Defense</dt>
+    <dd><%= @pokemon["defense"] %></dd>
+
+    <dt>Egg Cycles</dt>
+    <dd><%= @pokemon["egg_cycles"] %></dd>
+
+    <dt>Egg Groups</dt>
+    <dd>
+        <dl class="vcard large-12 columns">
+            <% @pokemon["egg_groups"].each do |egg| %>
+                <dt>
+                    <%= egg["name"] %>
+                </dt>
+            <% end %>
+        </dl>
+    </dd>
+
+    <dt>Ev Yield</dt>
+    <dd>  <%= @pokemon["ev_yield"] %></dd>
+
+    <dt>Evolutions</dt>
+    <dd>
+        <% @pokemon["evolutions"].each do |evolution| %>
+            Required Level: <%= evolution["level"] %><br>
+            Evolves into: <%= evolution["to"] %> <br>
+            <%= link_to "view", pokemon_path(poke_path(evolution["resource_uri"])) %>
+        <% end %>
+    </dd>
+
+    <dt>Exp</dt>
+    <dd><%= @pokemon["exp"] %>: 64,</dd>
+
+    <dt>Growth Rate</dt>
+    <dd><%= @pokemon["growth_rate"] %></dd>
+
+    <dt>Happiness</dt>
+    <dd><%= @pokemon["happiness"] %></dd>
+
+    <dt>Height</dt>
+    <dd><%= @pokemon["height"] %></dd>
+
+    <dt>HP</dt>
+    <dd><%= @pokemon["hp"] %></dd>
+
+    <dt>Male/Female Ratio</dt>
+    <dd><%= @pokemon["male_female_ratio"] %></dd>
+
+    <dt>Moves</dt>
+    <dd>
+        <dl class="vcard large-12 columns">
+            <% @pokemon["moves"].each do |move| %>
+                <dt>
+                    <%= move["name"] %>
+                </dt>
+                <dd>
+                    <%#= link_to "view", move_path(poke_path(move["resource_uri"])) %>
+                </dd>
+            <% end %>
+        </dl>
+    </dd>
+
+    <dt>SP Attack</dt>
+    <dd><%= @pokemon["sp_atk"] %></dd>
+
+    <dt>SP Defense</dt>
+    <dd><%= @pokemon["sp_def"] %></dd>
+
+    <dt>Species</dt>
+    <dd><%= @pokemon["species"] %></dd>
+
+    <dt>Speed</dt>
+    <dd><%= @pokemon["speed"] %></dd>
+
+    <dt>Types</dt>
+    <dd>
+        <dl class="vcard large-12 columns">
+            <% @pokemon["types"].each do |type| %>
+                <dt>
+                    <%= type["name"] %>
+                </dt>
+                <dd>
+                    <%#= link_to "view", type_path(poke_path(type["resource_uri"])) %>
+                </dd>
+            <% end %>
+        </dl>
+    </dd>
+
+    <dt>Weight</dt>
+    <dd><%= @pokemon["weight"] %></dd>
+
+</dl>

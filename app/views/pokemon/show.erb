@@ -9,7 +9,7 @@
         <dl class="vcard large-12 columns">
             <% @pokemon["abilities"].each do |ability| %>
                 <dt><%= ability["name"] %></dt>
-                <dd><%= link_to "view", ability_path(poke_path(ability["resource_uri"])) %></dd>
+                <dd><%#= link_to "view", ability_path(poke_path(ability["resource_uri"])) %></dd>
             <% end %>
         </dl>
     </dd>
@@ -49,7 +49,7 @@
     </dd>
 
     <dt>Exp</dt>
-    <dd><%= @pokemon["exp"] %>: 64,</dd>
+    <dd><%= @pokemon["exp"] %></dd>
 
     <dt>Growth Rate</dt>
     <dd><%= @pokemon["growth_rate"] %></dd>

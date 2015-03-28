@@ -1,0 +1,14 @@
+<ul class="pricing-table">
+    <li class="title">
+        <%= @game["name"].gsub('-',' ').humanize %>
+    </li>
+    <li class="bullet-item">
+        <strong>Release Year:</strong> <%= @game["release_year"] %>
+    </li>
+    <li class="bullet-item">
+        <strong>Generation:</strong> <%= @game["generation"] %>
+    </li>
+
+
+</ul>
+<%= link_to 'Back', :back %>

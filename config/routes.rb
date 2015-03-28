@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :evolutions, only: [:show]
   resources :moves, only: [:show]
   resources :types, only: [:show]
+  resources :games, only: [:show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

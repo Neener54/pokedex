@@ -1,6 +1,7 @@
-<h2><%= @ability["name"] %></h2>
-<p>
-    Description: <%= @ability["description"].humanize %>
-</p>
-<hr>
+<ul class="pricing-table">
+    <li class="title"><%= @ability["name"] %></li>
+    <li class="description">
+        Description: <%= @ability["description"].humanize %>
+    </li>
+</ul>
 <%= link_to 'Back', :back %>

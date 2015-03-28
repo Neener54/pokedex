@@ -22,6 +22,15 @@
     <dt>Defense</dt>
     <dd><%= @pokemon["defense"] %></dd>
 
+    <dt>Descriptions</dt>
+    <dd>
+        <dl class="vcard large-12 columns">
+            <% @pokemon["descriptions"].each do |description| %>
+                <dt><%= link_to description["name"].gsub('-',' ').humanize , description_path(poke_path(description["resource_uri"])) %></dt>
+            <% end %>
+        </dl>
+    </dd>
+
     <dt>Egg Cycles</dt>
     <dd><%= @pokemon["egg_cycles"] %></dd>
 

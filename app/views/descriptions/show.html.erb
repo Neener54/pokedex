@@ -1,7 +1,10 @@
 <ul class="pricing-table">
     <li class="title">
         <%= @description["name"].gsub('-',' ').humanize %>
-    </li>
+	</li>
+	<li class="description">
+		<%= @description["description"] %>
+	</li>
     <li class="price">
         <%= link_to @description["pokemon"]["name"].gsub('-',' ').humanize, pokemon_path(poke_path(@description["pokemon"]["resource_uri"]))%>
     </li>

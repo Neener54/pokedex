@@ -2,6 +2,6 @@ class EggsController < ApplicationController
   helper PokemonHelper
 
   def show
-    @pokemon = @poke_api.move(params[:id])
+    @egg = @poke_api.egg(params[:id])
   end
 end

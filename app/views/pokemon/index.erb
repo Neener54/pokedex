@@ -1,16 +1,16 @@
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-    <% @pokemon.each do |p| %>
-      <tr>
-        <td><%= p["name"] %></td>
-        <td><%= link_to "view", pokemon_path(poke_path(p["resource_uri"]))%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1>Pokemon</h1>
+<div id="sortedList">
+    <div class="row">
+        <div class="small-1 columns">
+            <label for="search" class="right inline">Search</label>
+        </div>
+        <div class="small-3 columns">
+            <input type="text" id="search" class="search small-6"/>
+        </div>
+        <span class="sort button small" data-sort="name">Sort by Name</span>
+    </div>
+    <hr>
+    <ul class="inline-list list">
+        <%= render partial: 'pokemon', locals: {pokemon: @pokemon, liclass:'large button'} %>
+    </ul>
+</div>

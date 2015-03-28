@@ -1,0 +1,8 @@
+<ul class="pricing-table">
+    <li class="title"><%= @move["name"].gsub('-',' ').humanize %></li>
+    <li class="description"><%= @move["description"] %></li>
+    <li class="bullet-item"><%= @move["accuracy"] %></li>
+    <li class="bullet-item"><%= @move["power"] %></li>
+    <li class="bullet-item"><%= @move["pp"] %></li>
+</ul>
+<%= link_to 'Back', :back %>

@@ -29,7 +29,15 @@
 //= require foundation/foundation.tab
 //= require foundation/foundation.tooltip
 //= require foundation/foundation.topbar
-
+//= require list
+//= require turbolinks
 //= require_self
 
 $(function(){ $(document).foundation(); });
+$(document).on('ready page:load', function(){
+    var options = {
+        valueNames: ['name']
+    };
+    var sortedList = new List('sortedList', options);
+    var sideList = new List('sideList', options);
+});

@@ -21,16 +21,28 @@
               </section>
 
               <section class="middle tab-bar-section">
-                  <h1 class="title">Pokedex</h1>
+                  <h1 class="title"><%= link_to "Pokedex", root_url %></h1>
               </section>
           </nav>
           <a class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
           <!-- Off Canvas Menu -->
           <aside class="left-off-canvas-menu">
               <!-- whatever you want goes here -->
-              <ul>
-                  <li><%= link_to "Pokedex Home", root_url %></li>
-              </ul>
+              <div id="sideList">
+                  <div class="row collapse prefix-radius">
+                      <div class="small-3 columns">
+                          <span for="search" class="prefix">Search</span>
+                      </div>
+                      <div class="small-9 columns">
+                          <input type="text" id="search" class="search small-6"/>
+                      </div>
+                  </div>
+                  <span class="sort label small" data-sort="name">Sort by Name</span>
+                  <hr>
+                  <ul class="no-bullet side-nav list">
+                      <%= render partial: 'pokemon/pokemon' , locals:{pokemon: @poke_api.index, liclass:''} if @poke_api %>
+                  </ul>
+              </div>
           </aside>
 
           <!-- main content goes here -->

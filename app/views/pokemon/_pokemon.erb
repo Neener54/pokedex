@@ -1,0 +1,11 @@
+
+<% pokemon.each do |p| %>
+    <li>
+        <span class="name">
+            <!--- For list sorting reasons this is here --->
+            <span style="display:none"><%= p["name"] %></span>
+            <%= link_to p["name"].capitalize , pokemon_path(poke_path(p["resource_uri"])), class: liclass %>
+        </span>
+    </li>
+<% end %>
+

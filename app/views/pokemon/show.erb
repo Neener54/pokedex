@@ -8,8 +8,8 @@
     <dd>
         <dl class="vcard large-12 columns">
             <% @pokemon["abilities"].each do |ability| %>
-                <dt><%= ability["name"] %></dt>
-                <dd><%#= link_to "view", ability_path(poke_path(ability["resource_uri"])) %></dd>
+                <dt><%= ability["name"].gsub('-',' ').humanize %></dt>
+                <dd><%= link_to "Ability Details", ability_path(poke_path(ability["resource_uri"])) %></dd>
             <% end %>
         </dl>
     </dd>
@@ -30,8 +30,11 @@
         <dl class="vcard large-12 columns">
             <% @pokemon["egg_groups"].each do |egg| %>
                 <dt>
-                    <%= egg["name"] %>
+                    <%= egg["name"].gsub('-',' ').humanize %>
                 </dt>
+                <dd>
+                    <%= link_to "Egg Details", egg_path(poke_path(egg["resource_uri"])) %>
+                </dd>
             <% end %>
         </dl>
     </dd>
@@ -41,11 +44,13 @@
 
     <dt>Evolutions</dt>
     <dd>
-        <% @pokemon["evolutions"].each do |evolution| %>
-            Required Level: <%= evolution["level"] %><br>
-            Evolves into: <%= evolution["to"] %> <br>
-            <%= link_to "view", pokemon_path(poke_path(evolution["resource_uri"])) %>
-        <% end %>
+        <div class="vcard large-12 columns">
+            <% @pokemon["evolutions"].each do |evolution| %>
+                Required Level: <%= evolution["level"] %><br>
+                Evolves into: <%= evolution["to"] %> <br>
+                <%= link_to evolution["to"], pokemon_path(poke_path(evolution["resource_uri"])) %>
+            <% end %>
+        </div>
     </dd>
 
     <dt>Exp</dt>
@@ -68,16 +73,11 @@
 
     <dt>Moves</dt>
     <dd>
-        <dl class="vcard large-12 columns">
+        <div class="vcard large-12 columns">
             <% @pokemon["moves"].each do |move| %>
-                <dt>
-                    <%= move["name"] %>
-                </dt>
-                <dd>
-                    <%#= link_to "view", move_path(poke_path(move["resource_uri"])) %>
-                </dd>
+                <%= link_to move["name"].gsub('-',' ').humanize, move_path(poke_path(move["resource_uri"])) %>,
             <% end %>
-        </dl>
+        </div>
     </dd>
 
     <dt>SP Attack</dt>
@@ -94,19 +94,16 @@
 
     <dt>Types</dt>
     <dd>
-        <dl class="vcard large-12 columns">
+        <div class="vcard large-12 columns">
             <% @pokemon["types"].each do |type| %>
-                <dt>
-                    <%= type["name"] %>
-                </dt>
-                <dd>
-                    <%#= link_to "view", type_path(poke_path(type["resource_uri"])) %>
-                </dd>
+                <%= link_to type["name"].gsub('-',' ').humanize, type_path(poke_path(type["resource_uri"])) %>,
             <% end %>
-        </dl>
+        </div>
     </dd>
 
     <dt>Weight</dt>
     <dd><%= @pokemon["weight"] %></dd>
 
 </dl>
+<hr>
+<%= link_to 'Back', :back %>

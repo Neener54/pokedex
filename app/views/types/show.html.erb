@@ -1,0 +1,34 @@
+<ul class="pricing-table">
+    <li class="title"><%= @type["name"].gsub('-',' ').humanize %></li>
+    <li class="bullet-item">
+        <%= "ineffective".humanize %> against:
+        <% @type["ineffective"].each do |type| %>
+            <%= link_to type["name"].gsub('-',' ').humanize, move_path(poke_path(type["resource_uri"])) %>,
+        <% end %>
+    </li>
+    <li class="bullet-item">
+        <%= "no_effect".humanize %> against:
+        <% @type["no_effect"].each do |type| %>
+            <%= link_to type["name"].gsub('-',' ').humanize, move_path(poke_path(type["resource_uri"])) %>,
+        <% end %>
+    </li>
+    <li class="bullet-item">
+        <%= "resistance".humanize %> against:
+        <% @type["resistance"].each do |type| %>
+            <%= link_to type["name"].gsub('-',' ').humanize, move_path(poke_path(type["resource_uri"])) %>,
+        <% end %>
+    </li>
+    <li class="bullet-item">
+        <%= "super_effective".humanize %> against:
+        <% @type["super_effective"].each do |type| %>
+            <%= link_to type["name"].gsub('-',' ').humanize, move_path(poke_path(type["resource_uri"])) %>,
+        <% end %>
+    </li>
+    <li class="bullet-item">
+        <%= "weakness".humanize %> against:
+        <% @type["weakness"].each do |type| %>
+            <%= link_to type["name"].gsub('-',' ').humanize, move_path(poke_path(type["resource_uri"])) %>,
+        <% end %>
+    </li>
+</ul>
+<%= link_to 'Back', :back %>

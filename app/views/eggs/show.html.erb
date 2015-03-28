@@ -1,0 +1,9 @@
+<ul class="pricing-table">
+    <li class="title"><%= @egg["name"].gsub('-',' ').humanize %></li>
+    <li class="description">Pokemon using this Egg Type:
+        <% @egg["pokemon"].each do |pokemon| %>
+            <%= link_to pokemon["name"], pokemon_path(poke_path(pokemon["resource_uri"])) %>,
+        <% end %>
+    </li>
+</ul>
+<%= link_to 'Back', :back %>
